@@ -2,6 +2,7 @@ from config.env import env
 
 SECRET_KEY = env("SECRET_KEY")
 
+TAILWIND_APP_NAME = "theme"
 
 INSTALLED_APPS = [
     "question.apps.QuestionConfig",
@@ -11,9 +12,13 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "tailwind",
+    "theme",
+    "django_browser_reload",
 ]
 
 MIDDLEWARE = [
+    "django_browser_reload.middleware.BrowserReloadMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
