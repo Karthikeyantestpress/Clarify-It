@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 
-from question.views import dashboard
+from question.views import dashboard, question_list
 
 urlpatterns = [
     path("admin/", admin.site.urls),
@@ -24,4 +24,5 @@ urlpatterns = [
     path("__reload__/", include("django_browser_reload.urls")),
     path("account/", include("django.contrib.auth.urls")),
     path("question_hub/", dashboard.dashboard, name="dashboard"),
+    path("questions/", question_list.QuestionListView.as_view(), name="question_list"),
 ]
